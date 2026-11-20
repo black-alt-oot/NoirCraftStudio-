@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b30">
+  <title>NoirCraftStudio | Graphic Design & Flyer Design</title>
+  <meta name="description" content="NoirCraftStudio creates distinctive flyer designs, promotional graphics and brand visuals. Designs That Speak Volume.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://YOUR-VERCEL-DOMAIN.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NoirCraftStudio — Designs That Speak Volume.">
+  <meta property="og:description" content="Distinctive graphic design for brands, businesses and events.">
+  <meta property="og:image" content="https://YOUR-VERCEL-DOMAIN.vercel.app/assets/social-preview.jpg">
+  <style>
+    :root {
+      --navy:#101b30; --navy2:#172640; --silver:#c5cbd4; --ink:#172033;
+      --muted:#667085; --paper:#f7f8fa; --white:#fff; --line:#e4e7ec;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--white);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topbar{background:var(--navy);color:#fff}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:18px;font-weight:800;letter-spacing:.13em}
+    .brand span{color:var(--silver)}
+    .navlinks{display:flex;gap:26px;align-items:center;font-size:13px;color:#e5e9f0}
+    .navlinks a:hover{color:var(--silver)}
+    .menu{display:none;background:none;border:1px solid #61708a;color:#fff;padding:8px 11px;border-radius:5px}
+    .hero{background:linear-gradient(135deg,var(--navy),#1b2b47);color:#fff;padding:104px 0 96px}
+    .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#c5cbd4;font-weight:700}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.05;letter-spacing:-.045em;max-width:850px;margin:20px 0}
+    .hero p{max-width:600px;color:#d7deea;font-size:17px;margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border:1px solid var(--silver);font-size:13px;font-weight:700;letter-spacing:.04em;transition:.2s}
+    .btn.primary{background:#d0d5dd;color:var(--navy);border-color:#d0d5dd}
+    .btn:hover{transform:translateY(-2px);opacity:.9}
+    section{padding:82px 0}
+    .section-head{max-width:660px;margin-bottom:34px}
+    .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7b8493;font-weight:800}
+    h2{font-size:clamp(30px,4vw,46px);line-height:1.15;letter-spacing:-.035em;margin:10px 0 14px;color:var(--navy)}
+    .lead{color:var(--muted);font-size:16px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+    .statement{background:var(--paper);border-left:3px solid #aeb6c2;padding:28px;color:var(--navy);font-size:22px;font-weight:650}
+    .services{background:var(--paper)}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:#fff;border:1px solid var(--line);padding:26px;min-height:180px}
+    .service h3{font-size:17px;color:var(--navy);margin:0 0 10px}
+    .service p{font-size:14px;color:var(--muted);margin:0}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .project{border:1px solid var(--line);background:#fff}
+    .project-visual{aspect-ratio:16/10;background:linear-gradient(135deg,#e6e9ee,#c5cbd4);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .project-visual img{width:100%;height:100%;object-fit:cover;display:block}
+    .placeholder{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#596579;font-weight:800}
+    .project-copy{padding:20px 22px}
+    .project-copy h3{margin:0;color:var(--navy);font-size:19px}
+    .project-copy p{margin:5px 0 0;color:var(--muted);font-size:13px}
+    .note{margin-top:22px;color:#7b8493;font-size:12px}
+    .contact{background:var(--navy);color:#fff}
+    .contact h2{color:#fff}
+    .contact .lead{color:#d2d9e5}
+    .contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .contact .btn{color:#fff;border-color:#8793a6}
+    .contact .btn.primary{background:#d0d5dd;color:var(--navy);border-color:#d0d5dd}
+    footer{background:#0b1424;color:#c5cbd4;padding:24px 0;font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:760px){
+      .wrap{width:min(var(--max),calc(100% - 32px))}
+      nav{min-height:68px}.menu{display:block}
+      .navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:var(--navy2);padding:18px 22px;flex-direction:column;align-items:flex-start;z-index:5}
+      .navlinks.open{display:flex}
+      .hero{padding:76px 0 70px}
+      section{padding:62px 0}
+      .about-grid,.service-grid,.projects{grid-template-columns:1fr}
+      .about-grid{gap:24px}
+      .service{min-height:0}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"NoirCraftStudio",
+    "description":"Graphic design studio creating flyer designs, promotional graphics and brand visuals.",
+    "email":"noircraft.design@gmail.com",
+    "url":"https://YOUR-VERCEL-DOMAIN.vercel.app/",
+    "sameAs":[
+      "https://www.fiverr.com/noircraftdesign",
+      "https://www.behance.net/muhammedmoshood1"
+    ],
+    "areaServed":"Worldwide",
+    "knowsAbout":["Flyer Design","Graphic Design","Promotional Design","Brand Identity"]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">NOIRCRAFT<span>STUDIO</span></a>
+        <button class="menu" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+        <div class="navlinks" id="navLinks">
+          <a href="#about">About</a><a href="#services">Services</a><a href="#work">Selected Work</a><a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="eyebrow">Independent Graphic Design Studio</div>
+        <h1>Designs That<br>Speak Volume.</h1>
+        <p>Distinctive visual design for businesses, brands and events. Clear ideas, thoughtful layouts and visuals made to communicate.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">EXPLORE OUR WORK</a>
+          <a class="btn" href="#contact">GET IN TOUCH</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="kicker">About the studio</div>
+          <h2>Visuals with purpose.</h2>
+          <p class="lead">NoirCraftStudio is an independent graphic design studio focused on creating clear, distinctive visual communication. From promotional flyers to brand-led graphics, every design is approached with attention to composition, clarity and consistency.</p>
+        </div>
+        <div class="statement">Good design does more than look appealing. It gives an idea a clear and memorable voice.</div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">What we do</div>
+          <h2>Design services</h2>
+          <p class="lead">Focused creative support for brands, businesses and events.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><h3>Flyer Design</h3><p>Promotional, event and business flyers designed to communicate information with impact.</p></article>
+          <article class="service"><h3>Social Media Graphics</h3><p>Consistent visual content for announcements, promotions and digital communication.</p></article>
+          <article class="service"><h3>Brand Identity</h3><p>Visual identity concepts and supporting graphics that help a brand present itself consistently.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Selected projects</div>
+          <h2>A look at our work.</h2>
+          <p class="lead">A selection of visual identity and graphic design projects.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual">
+              <img src="assets/aurelle-cover.jpg" alt="AURÈLLE brand identity project" onerror="this.remove();this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Add AURÈLLE project cover</span>'">
+            </div>
+            <div class="project-copy"><h3>AURÈLLE</h3><p>Brand identity and visual direction</p></div>
+          </article>
+          <article class="project">
+            <div class="project-visual">
+              <img src="assets/vantage-cover.jpg" alt="VANTAGE brand identity project" onerror="this.remove();this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Add VANTAGE project cover</span>'">
+            </div>
+            <div class="project-copy"><h3>VANTAGE</h3><p>Brand identity and visual direction</p></div>
+          </article>
+          <article class="project">
+            <div class="project-visual">
+              <img src="assets/flyer-01.jpg" alt="Flyer design portfolio sample" onerror="this.remove();this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Add flyer sample 01</span>'">
+            </div>
+            <div class="project-copy"><h3>Promotional Design</h3><p>Flyer design and visual communication</p></div>
+          </article>
+          <article class="project">
+            <div class="project-visual">
+              <img src="assets/flyer-02.jpg" alt="Promotional graphic design sample" onerror="this.remove();this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Add flyer sample 02</span>'">
+            </div>
+            <div class="project-copy"><h3>Creative Collection</h3><p>Selected promotional graphics</p></div>
+          </article>
+        </div>
+        <p class="note">Portfolio images are placeholders until you add your original exported designs to the assets folder.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="kicker">Start a project</div>
+        <h2>Let's create something clear and memorable.</h2>
+        <p class="lead">For design enquiries and project discussions, get in touch.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:noircraft.design@gmail.com">EMAIL THE STUDIO</a>
+          <a class="btn" href="https://www.fiverr.com/noircraftdesign" target="_blank" rel="noopener">FIVERR</a>
+          <a class="btn" href="https://www.behance.net/muhammedmoshood1" target="_blank" rel="noopener">BEHANCE</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> NoirCraftStudio. All rights reserved.</span>
+      <span>Designs That Speak Volume.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
+</body>
+</html>
