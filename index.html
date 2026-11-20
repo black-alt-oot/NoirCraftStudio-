@@ -1,1 +1,563 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="NoirCraftStudio is a graphic design studio creating thoughtful visual identities, promotional graphics and digital designs. Designs That Speaks Volume.">
+  <title>NoirCraftStudio | Designs That Speaks Volume</title>
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #101827;
+      --surface2: #151f30;
+      --white: #f4f6fa;
+      --muted: #a7b0bf;
+      --silver: #b9c4d3;
+      --line: rgba(185,196,211,.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(8,13,24,.96);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: var(--silver); }
+
+    .nav-links {
+      display: flex;
+      gap: 27px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .hero {
+      padding: 115px 0 105px;
+      border-bottom: 1px solid var(--line);
+      background: radial-gradient(
+        ellipse at 80% 20%,
+        rgba(80,112,155,.17),
+        transparent 45%
+      );
+    }
+
+    .eyebrow {
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(44px, 8vw, 88px);
+      line-height: 1.04;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span { color: var(--silver); }
+
+    .hero-copy {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 34px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      background: var(--silver);
+      color: #101827;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid var(--silver);
+    }
+
+    .button:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    section { padding: 85px 0; }
+
+    .section-heading { margin-bottom: 38px; }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 14px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .services {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service {
+      padding: 27px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .service h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project { margin-bottom: 65px; }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .project-title h3 { font-size: 25px; }
+
+    .project-title p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .project-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .project-cover img { object-fit: contain; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .gallery-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      object-fit: contain;
+      transition: transform .3s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.025); }
+
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .other-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .other-card .image {
+      aspect-ratio: 4 / 3;
+      background: var(--surface2);
+    }
+
+    .other-card .image img { object-fit: contain; }
+
+    .other-card h3 {
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 0 auto 27px;
+      max-width: 520px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 28px;
+      color: var(--silver);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 13px; font-size: 11px; }
+      .logo { font-size: 15px; }
+      .hero { padding: 85px 0; }
+      .about { grid-template-columns: 1fr; gap: 20px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .other-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 65px 0; }
+      .project-title {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nav-links { gap: 9px; }
+      .nav-links a { font-size: 10px; }
+      .other-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#">NOIR<span>CRAFT</span>STUDIO</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Independent Graphic Design Studio</p>
+      <h1>Designs That<br><span>Speaks Volume.</span></h1>
+      <p class="hero-copy">
+        We create purposeful visual experiences through thoughtful
+        graphic design, visual identity and creative direction.
+      </p>
+      <a class="button" href="#work">Explore Our Work</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div class="section-heading">
+        <p class="eyebrow">The Studio</p>
+        <h2>Design with intention.</h2>
+      </div>
+      <div>
+        <p>
+          NoirCraftStudio is a graphic design studio focused on creating
+          distinctive visual work for brands, businesses and creative projects.
+        </p>
+        <p>
+          From promotional graphics to visual identity, every project is
+          approached with attention to detail, clarity and purpose.
+        </p>
+        <p>
+          Our goal is simple: create designs that communicate clearly
+          and leave a lasting impression.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">What We Do</p>
+        <h2>Creative Services</h2>
+        <p>Visual solutions designed to help ideas and brands communicate.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service">
+          <h3>Flyer Design</h3>
+          <p>Promotional and event graphics designed to capture attention.</p>
+        </div>
+        <div class="service">
+          <h3>Social Media Graphics</h3>
+          <p>Digital visuals for campaigns, announcements and online presence.</p>
+        </div>
+        <div class="service">
+          <h3>Brand Identity</h3>
+          <p>Visual identity systems that give brands a consistent direction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Projects</p>
+        <h2>Our Work</h2>
+        <p>A selection of visual projects from NoirCraftStudio.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <div>
+            <h3>AURÈLLE</h3>
+            <p>Visual Identity & Brand Presentation</p>
+          </div>
+        </div>
+
+        <div class="project-cover">
+          <img src="assets/AURÈLLE%20-Cover.png" alt="AURÈLLE project cover">
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="assets/AURÈLLE%20-01.png" alt="AURÈLLE presentation 1">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/AURÈLLE%20-02.png" alt="AURÈLLE presentation 2">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/AURÈLLE%20-03.png" alt="AURÈLLE presentation 3">
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <div>
+            <h3>VANTAGE</h3>
+            <p>Brand Identity & Visual Design</p>
+          </div>
+        </div>
+
+        <div class="project-cover">
+          <img src="assets/Vantage-Cover.png" alt="VANTAGE project cover">
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="assets/Vantage-01.png" alt="VANTAGE presentation 1">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/Vantage-02.png" alt="VANTAGE presentation 2">
+          </div>
+          <div class="gallery-item">
+            <img src="assets/Vantage-03.png" alt="VANTAGE presentation 3">
+          </div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <p class="eyebrow">More Selected Work</p>
+        <h2>Additional Designs</h2>
+      </div>
+
+      <div class="other-grid">
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/Headphone.png" alt="Headphone design">
+          </div>
+          <h3>Headphone Design</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/Portfolio.jpg" alt="Portfolio design">
+          </div>
+          <h3>Portfolio Design</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-blackx.png" alt="Black X Calls design">
+          </div>
+          <h3>BLACK X CALLS</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-dubzz-card.png" alt="Dubzz card design">
+          </div>
+          <h3>DUBZZ — Card Design</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-dubzz-logo.png" alt="Dubzz logo design">
+          </div>
+          <h3>DUBZZ — Logo</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-kalbat.png" alt="Kalbat design">
+          </div>
+          <h3>KALBAT</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-nikkah.png" alt="Nikkah design">
+          </div>
+          <h3>Nikkah Design</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-scholls-expo.png" alt="Scholls Expo design">
+          </div>
+          <h3>Scholls Expo</h3>
+        </article>
+
+        <article class="other-card">
+          <div class="image">
+            <img src="assets/work-scholls-sponsor.png" alt="Scholls sponsor design">
+          </div>
+          <h3>Scholls Sponsor Design</h3>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="eyebrow">Start a Project</p>
+      <h2>Let's create something meaningful.</h2>
+      <p>
+        Have a project in mind? Get in touch with NoirCraftStudio
+        and let's bring your ideas to life.
+      </p>
+
+      <a class="button" href="mailto:noircraft.design@gmail.com">
+        Contact the Studio
+      </a>
+
+      <div class="contact-links">
+        <a href="https://www.fiverr.com/noircraftdesign" target="_blank" rel="noopener">Fiverr</a>
+        <a href="https://www.behance.net/muhammedmoshood1" target="_blank" rel="noopener">Behance</a>
+        <a href="mailto:noircraft.design@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 NoirCraftStudio. Designs That Speaks Volume.
+  </div>
+</footer>
+
+</body>
+  </html>
+  
