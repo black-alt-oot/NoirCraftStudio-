@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Explore the AURÈLLE skincare brand identity and campaign designs by NoirCraftStudio.">
+  <meta property="og:title" content="AURÈLLE — NoirCraftStudio Case Study">
+  <meta property="og:description" content="A considered skincare visual identity built around warm neutrals, refined serif typography and product-led imagery.">
+  <meta property="og:image" content="https://noircraftstudio.vercel.app/assets/aurelle-Cover.png">
+  <title>AURÈLLE — NoirCraftStudio Case Study</title>
+  <style>
+    :root { --bg:#080d18; --surface:#101827; --white:#f4f6fa; --muted:#a7b0bf; --silver:#b9c4d3; --line:rgba(185,196,211,.18); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--white); font-family:Arial,Helvetica,sans-serif; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid var(--silver); outline-offset:4px; }
+    .container { width:min(1040px,90%); margin:auto; }
+    header { border-bottom:1px solid var(--line); }
+    nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .logo { font-size:17px; font-weight:800; letter-spacing:2px; }
+    .logo span { color:var(--silver); }
+    .back { color:var(--muted); font-size:13px; }
+    .back:hover { color:var(--white); }
+    main { padding:82px 0 90px; }
+    .eyebrow { color:var(--silver); text-transform:uppercase; letter-spacing:3px; font-size:11px; margin-bottom:18px; }
+    h1 { font-size:clamp(42px,8vw,76px); line-height:1.05; letter-spacing:-2.5px; margin-bottom:18px; }
+    .intro { max-width:650px; color:var(--muted); font-size:16px; margin-bottom:38px; }
+    .cover { background:var(--surface); border:1px solid var(--line); overflow:hidden; }
+    img { display:block; width:100%; height:auto; }
+    .content { display:grid; grid-template-columns:1fr 1fr; gap:54px; padding:62px 0; border-bottom:1px solid var(--line); }
+    h2 { font-size:clamp(25px,4vw,34px); line-height:1.15; margin-bottom:16px; }
+    .content p { color:var(--muted); font-size:14px; }
+    .gallery-heading { padding:54px 0 22px; }
+    .gallery-heading p { color:var(--muted); font-size:14px; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .gallery figure { background:var(--surface); border:1px solid var(--line); }
+    .gallery img { height:100%; object-fit:contain; }
+    footer { border-top:1px solid var(--line); padding:24px 0; color:var(--muted); font-size:11px; text-align:center; }
+    @media(max-width:700px) {
+      nav { min-height:66px; }
+      .logo { font-size:14px; }
+      main { padding:60px 0 68px; }
+      .content { grid-template-columns:1fr; gap:18px; padding:42px 0; }
+      .gallery { grid-template-columns:1fr 1fr; gap:10px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="index.html">NOIR<span>CRAFT</span>STUDIO</a>
+        <a class="back" href="index.html#work">← Back to selected work</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <p class="eyebrow">Selected project · Skincare</p>
+    <h1>AURÈLLE</h1>
+    <p class="intro">A skincare visual identity and campaign presentation shaped by a calm, product-first approach. The direction balances refinement with clear, understated communication.</p>
+    <div class="cover">
+      <img src="assets/aurelle-Cover.png" alt="AURÈLLE skincare brand presentation cover" fetchpriority="high">
+    </div>
+    <section class="content" aria-label="Project approach">
+      <div>
+        <p class="eyebrow">Creative direction</p>
+        <h2>Quiet, considered and product-led.</h2>
+      </div>
+      <div>
+        <p>The visual direction uses warm neutral tones, refined serif typography and restrained packaging details. Natural-looking product lighting keeps the focus on the skincare range while giving the presentation a soft, composed feel.</p>
+      </div>
+    </section>
+    <section aria-label="Project deliverables">
+      <div class="gallery-heading">
+        <p class="eyebrow">The presentation</p>
+        <h2>From identity to campaign.</h2>
+        <p>The work is presented in its original sequence, from the identity board through the campaign applications.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/aurelle-01.png" alt="AURÈLLE brand identity board" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/aurelle-02.png" alt="AURÈLLE lifestyle skincare advertisement" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/aurelle-03.png" alt="AURÈLLE serum product and social campaign design" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© 2026 NoirCraftStudio. Designs That Speaks Volume.</div></footer>
+</body>
+</html>
