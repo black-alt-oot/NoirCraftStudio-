@@ -49,6 +49,22 @@
       text-decoration: none;
     }
 
+    a:focus-visible {
+      outline: 2px solid var(--silver);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
     img {
       display: block;
       width: 100%;
@@ -320,22 +336,40 @@
         font-size: 12px;
       }
       .logo { font-size: 15px; }
-      .hero { padding: 85px 0; }
+      .hero { padding: 72px 0 68px; }
+      h1 {
+        font-size: clamp(36px, 10vw, 58px);
+        letter-spacing: -2px;
+        overflow-wrap: break-word;
+      }
+      .hero-copy { font-size: 15px; }
       .about { grid-template-columns: 1fr; gap: 20px; }
       .service-grid { grid-template-columns: 1fr; }
-      .other-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery { grid-template-columns: repeat(2, 1fr); }
-      section { padding: 65px 0; }
+      .other-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      section { padding: 58px 0; }
+      .project { margin-bottom: 52px; }
       .project-title {
         align-items: start;
         flex-direction: column;
       }
+      .project-title h3 { font-size: 22px; }
+      .contact-links { gap: 16px 22px; }
     }
 
     @media (max-width: 390px) {
       .nav-links { gap: 8px 14px; }
       .nav-links a { font-size: 11px; }
+      .container { width: min(1120px, 88%); }
+      .eyebrow { letter-spacing: 2px; }
+      .other-grid { gap: 10px; }
+      .other-card h3 { padding: 12px; font-size: 13px; }
+    }
+
+    @media (max-width: 340px) {
       .other-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 8px 12px; }
+      h1 { font-size: 36px; }
     }
   </style>
 </head>
@@ -435,18 +469,18 @@
         </div>
 
         <div class="project-cover">
-          <img src="assets/aurelle-Cover.png" alt="AURÈLLE project cover">
+          <img loading="lazy" decoding="async" src="assets/aurelle-Cover.png" alt="AURÈLLE project cover">
         </div>
 
         <div class="gallery">
           <div class="gallery-item">
-            <img src="assets/aurelle-01.png" alt="AURÈLLE presentation 1">
+            <img loading="lazy" decoding="async" src="assets/aurelle-01.png" alt="AURÈLLE presentation 1">
           </div>
           <div class="gallery-item">
-            <img src="assets/aurelle-02.png" alt="AURÈLLE presentation 2">
+            <img loading="lazy" decoding="async" src="assets/aurelle-02.png" alt="AURÈLLE presentation 2">
           </div>
           <div class="gallery-item">
-            <img src="assets/aurelle-03.png" alt="AURÈLLE presentation 3">
+            <img loading="lazy" decoding="async" src="assets/aurelle-03.png" alt="AURÈLLE presentation 3">
           </div>
         </div>
       </div>
@@ -460,18 +494,18 @@
         </div>
 
         <div class="project-cover">
-          <img src="assets/Vantage-Cover.png" alt="VANTAGE project cover">
+          <img loading="lazy" decoding="async" src="assets/Vantage-Cover.png" alt="VANTAGE project cover">
         </div>
 
         <div class="gallery">
           <div class="gallery-item">
-            <img src="assets/Vantage-01.png" alt="VANTAGE presentation 1">
+            <img loading="lazy" decoding="async" src="assets/Vantage-01.png" alt="VANTAGE presentation 1">
           </div>
           <div class="gallery-item">
-            <img src="assets/Vantage-02.png" alt="VANTAGE presentation 2">
+            <img loading="lazy" decoding="async" src="assets/Vantage-02.png" alt="VANTAGE presentation 2">
           </div>
           <div class="gallery-item">
-            <img src="assets/Vantage-03.png" alt="VANTAGE presentation 3">
+            <img loading="lazy" decoding="async" src="assets/Vantage-03.png" alt="VANTAGE presentation 3">
           </div>
         </div>
       </div>
@@ -485,63 +519,63 @@
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/Headphone.png" alt="Headphone design">
+            <img loading="lazy" decoding="async" src="assets/Headphone.png" alt="Headphone design">
           </div>
           <h3>Headphone Design</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/Portfolio.jpg" alt="Portfolio design">
+            <img loading="lazy" decoding="async" src="assets/Portfolio.jpg" alt="Portfolio design">
           </div>
           <h3>Portfolio Design</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-blackx.png" alt="Black X Calls design">
+            <img loading="lazy" decoding="async" src="assets/work-blackx.png" alt="Black X Calls design">
           </div>
           <h3>BLACK X CALLS</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-dubzz-card.png" alt="Dubzz card design">
+            <img loading="lazy" decoding="async" src="assets/work-dubzz-card.png" alt="Dubzz card design">
           </div>
           <h3>DUBZZ — Card Design</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-dubzz-logo.png" alt="Dubzz logo design">
+            <img loading="lazy" decoding="async" src="assets/work-dubzz-logo.png" alt="Dubzz logo design">
           </div>
           <h3>DUBZZ — Logo</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-kalbat.png" alt="Kalbat design">
+            <img loading="lazy" decoding="async" src="assets/work-kalbat.png" alt="Kalbat design">
           </div>
           <h3>KALBAT</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-nikkah.png" alt="Nikkah design">
+            <img loading="lazy" decoding="async" src="assets/work-nikkah.png" alt="Nikkah design">
           </div>
           <h3>Nikkah Design</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-scholls-expo.png" alt="Scholls Expo design">
+            <img loading="lazy" decoding="async" src="assets/work-scholls-expo.png" alt="Scholls Expo design">
           </div>
           <h3>Scholls Expo</h3>
         </article>
 
         <article class="other-card">
           <div class="image">
-            <img src="assets/work-scholls-sponsor.png" alt="Scholls sponsor design">
+            <img loading="lazy" decoding="async" src="assets/work-scholls-sponsor.png" alt="Scholls sponsor design">
           </div>
           <h3>Scholls Sponsor Design</h3>
         </article>
