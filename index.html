@@ -227,18 +227,27 @@
     .project-title h3 { font-size: 25px; }
 
     .project-link {
-      color: var(--silver);
-      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 20px;
+      color: #08111f;
+      background: var(--silver);
+      border: 1px solid var(--silver);
+      font-size: 13px;
       font-weight: 700;
+      letter-spacing: .2px;
       white-space: nowrap;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 5px;
-      transition: color .2s ease, border-color .2s ease;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
     }
 
     .project-link:hover {
       color: var(--white);
-      border-color: var(--silver);
+      background: #263b58;
+      border-color: #526d91;
+      transform: translateY(-2px);
     }
 
     .project-title p {
@@ -397,6 +406,7 @@
         flex-direction: column;
       }
       .project-title h3 { font-size: 22px; }
+      .project-link { min-height: 44px; padding: 0 17px; }
       .contact-links { gap: 16px 22px; }
     }
 
