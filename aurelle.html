@@ -36,7 +36,13 @@
     .gallery-heading p { color:var(--muted); font-size:14px; }
     .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
     .gallery figure { background:var(--surface); border:1px solid var(--line); }
-    .gallery img { height:100%; object-fit:contain; }
+    .gallery img { height:auto; object-fit:contain; }
+
+    .gallery figure { min-width: 0; }
+    .gallery-copy { padding: 17px 16px 19px; }
+    .gallery-copy h3 { font-size: 15px; margin-bottom: 7px; }
+    .gallery-copy p { color: var(--muted); font-size: 13px; line-height: 1.65; }
+
     footer { border-top:1px solid var(--line); padding:24px 0; color:var(--muted); font-size:11px; text-align:center; }
     @media(max-width:700px) {
       nav { min-height:66px; }
@@ -80,9 +86,27 @@
         <p>The work is presented in its original sequence, from the identity board through the campaign applications.</p>
       </div>
       <div class="gallery">
-        <figure><img src="assets/aurelle-01.png" alt="AURÈLLE brand identity board" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/aurelle-02.png" alt="AURÈLLE lifestyle skincare advertisement" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/aurelle-03.png" alt="AURÈLLE serum product and social campaign design" loading="lazy" decoding="async"></figure>
+        <figure>
+          <img src="assets/aurelle-01.png" alt="AURÈLLE brand identity board" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>01 — Brand Identity</h3>
+            <p>The foundation of AURÈLLE's visual language. This presentation brings the brand elements together into a clear direction, setting the tone for the look and feel carried through the rest of the project.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/aurelle-02.png" alt="AURÈLLE lifestyle skincare advertisement" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>02 — Lifestyle Campaign</h3>
+            <p>A campaign-led application that places the skincare brand in a lifestyle context. The composition supports a calm, considered mood while keeping the product and brand presentation central.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/aurelle-03.png" alt="AURÈLLE serum product and social campaign design" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>03 — Product Promotion</h3>
+            <p>A product-focused visual created to give the serum its own moment. The design extends the identity into promotional communication while maintaining a consistent brand feel.</p>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </main>
