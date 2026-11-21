@@ -36,7 +36,13 @@
     .gallery-heading p { color:var(--muted); font-size:14px; }
     .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
     .gallery figure { background:var(--surface); border:1px solid var(--line); }
-    .gallery img { height:100%; object-fit:contain; }
+    .gallery img { height:auto; object-fit:contain; }
+
+    .gallery figure { min-width: 0; }
+    .gallery-copy { padding: 17px 16px 19px; }
+    .gallery-copy h3 { font-size: 15px; margin-bottom: 7px; }
+    .gallery-copy p { color: var(--muted); font-size: 13px; line-height: 1.65; }
+
     footer { border-top:1px solid var(--line); padding:24px 0; color:var(--muted); font-size:11px; text-align:center; }
     @media(max-width:700px) {
       nav { min-height:66px; }
@@ -80,9 +86,27 @@
         <p>The work follows its established sequence, introducing the identity before moving into corporate, product and social media applications.</p>
       </div>
       <div class="gallery">
-        <figure><img src="assets/Vantage-01.png" alt="VANTAGE brand identity board" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/Vantage-02.png" alt="VANTAGE corporate promotional design" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/Vantage-03.png" alt="VANTAGE technology product and social media advertisements" loading="lazy" decoding="async"></figure>
+        <figure>
+          <img src="assets/Vantage-01.png" alt="VANTAGE brand identity board" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>01 — Brand Identity</h3>
+            <p>The core visual system for VANTAGE. This board establishes the brand's identity direction and provides a consistent foundation for the communication pieces that follow.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Vantage-02.png" alt="VANTAGE corporate promotional design" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>02 — Corporate Campaign</h3>
+            <p>An application of the identity in a corporate promotional setting. The layout carries the VANTAGE look into brand communication with a direct, structured presentation.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/Vantage-03.png" alt="VANTAGE technology product and social media advertisements" loading="lazy" decoding="async">
+          <figcaption class="gallery-copy">
+            <h3>03 — Product & Social Campaign</h3>
+            <p>A product-led campaign extension that brings the visual system into digital promotion. It keeps the brand recognisable while adapting the identity for a more engaging, audience-facing format.</p>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </main>
