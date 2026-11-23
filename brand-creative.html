@@ -134,6 +134,48 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
   header.floating-header .nav-links a { transition: none; }
 }
 
+
+/* Scroll glow and full-size design preview */
+.flyer-glow {
+  position: relative;
+  transition: box-shadow .45s ease, border-color .45s ease, transform .35s ease;
+}
+.flyer-glow.is-lit {
+  border-color: rgba(185,196,211,.72) !important;
+  box-shadow: 0 0 0 1px rgba(185,196,211,.12),
+              0 0 22px rgba(185,196,211,.24),
+              0 0 48px rgba(91,126,171,.16);
+}
+.flyer-preview-image { cursor: zoom-in; }
+.flyer-viewer {
+  position: fixed; inset: 0; z-index: 2000;
+  display: none; align-items: center; justify-content: center;
+  padding: 28px; background: rgba(3,6,12,.94);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.flyer-viewer.is-open { display: flex; }
+.flyer-viewer img {
+  width: auto; height: auto; max-width: min(94vw, 1500px);
+  max-height: 88vh; object-fit: contain;
+  user-select: none; -webkit-user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 0 22px rgba(185,196,211,.20));
+}
+.flyer-viewer-close {
+  position: absolute; top: 18px; right: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(185,196,211,.55);
+  background: rgba(16,24,39,.9); color: #f4f6fa;
+  font-size: 25px; line-height: 1; cursor: pointer;
+}
+.flyer-viewer-caption {
+  position: absolute; left: 20px; right: 20px; bottom: 12px;
+  color: #c4cedb; text-align: center; font-size: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flyer-glow { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -148,5 +190,65 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
 </div><a class="back-button" href="index.html#work">Back to selected work</a></div></section>
 </main>
 <footer><div class="container">© 2026 NoirCraftStudio. Designs That Speaks Volume.</div></footer>
+
+<script>
+(() => {
+  const selector = '.gallery-item img, .other-card .image img, .project-cover img, .card .image img';
+  const images = [...document.querySelectorAll(selector)];
+  images.forEach(img => {
+    img.classList.add('flyer-preview-image');
+    img.setAttribute('draggable', 'false');
+    const frame = img.closest('.gallery-item, .other-card, .project-cover, .card');
+    if (frame) frame.classList.add('flyer-glow');
+    img.addEventListener('contextmenu', event => event.preventDefault());
+    img.addEventListener('dragstart', event => event.preventDefault());
+  });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-lit', entry.isIntersecting);
+      });
+    }, { threshold: 0.28, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.flyer-glow').forEach(item => observer.observe(item));
+  } else {
+    document.querySelectorAll('.flyer-glow').forEach(item => item.classList.add('is-lit'));
+  }
+
+  const viewer = document.createElement('div');
+  viewer.className = 'flyer-viewer';
+  viewer.setAttribute('role', 'dialog');
+  viewer.setAttribute('aria-modal', 'true');
+  viewer.setAttribute('aria-label', 'Design preview');
+  viewer.innerHTML = '<button class="flyer-viewer-close" type="button" aria-label="Close preview">×</button><img alt=""><p class="flyer-viewer-caption"></p>';
+  document.body.appendChild(viewer);
+  const preview = viewer.querySelector('img');
+  const caption = viewer.querySelector('.flyer-viewer-caption');
+  const close = () => {
+    viewer.classList.remove('is-open');
+    preview.removeAttribute('src');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('click', event => {
+    const img = event.target.closest(selector);
+    if (img) {
+      preview.src = img.currentSrc || img.src;
+      preview.alt = img.alt || 'Portfolio design preview';
+      caption.textContent = img.alt || '';
+      viewer.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+  viewer.addEventListener('click', event => {
+    if (event.target === viewer || event.target.closest('.flyer-viewer-close')) close();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && viewer.classList.contains('is-open')) close();
+  });
+  viewer.addEventListener('contextmenu', event => event.preventDefault());
+  viewer.addEventListener('dragstart', event => event.preventDefault());
+})();
+</script>
+
 </body>
 </html>
