@@ -99,16 +99,21 @@
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       border-bottom: 1px solid var(--line);
-      background: rgba(8,13,24,.96);
+      background: rgba(8,13,24,.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     nav {
-      min-height: 76px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .logo {
@@ -121,12 +126,35 @@
 
     .nav-links {
       display: flex;
-      gap: 27px;
+      align-items: center;
+      gap: 4px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      background: rgba(16,24,39,.82);
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      letter-spacing: .25px;
     }
 
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--white);
+      background: var(--surface2);
+      border-color: var(--line);
+    }
+
+    section[id] { scroll-margin-top: 100px; }
 
     .hero {
       padding: 115px 0 105px;
@@ -476,14 +504,22 @@
       nav {
         min-height: auto;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 0;
-        gap: 10px;
+        align-items: stretch;
+        padding: 13px 0 12px;
+        gap: 11px;
       }
       .nav-links {
-        flex-wrap: wrap;
-        gap: 8px 18px;
-        font-size: 12px;
+        width: 100%;
+        overflow-x: auto;
+        gap: 3px;
+        padding: 4px;
+        font-size: 11px;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a {
+        min-height: 36px;
+        padding: 0 13px;
       }
       .logo { font-size: 15px; }
       .hero { padding: 72px 0 68px; }
@@ -507,8 +543,8 @@
     }
 
     @media (max-width: 390px) {
-      .nav-links { gap: 8px 14px; }
-      .nav-links a { font-size: 11px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { font-size: 10px; padding: 0 11px; }
       .container { width: min(1120px, 88%); }
       .eyebrow { letter-spacing: 2px; }
       .other-card h3 { padding: 12px; font-size: 13px; }
@@ -519,7 +555,7 @@
       h1 { font-size: 36px; }
     }
   
-    body::before { content:"NC"; position:fixed; right:3vw; bottom:2vh; z-index:0; pointer-events:none; font-size:clamp(280px,52vw,720px); line-height:.8; font-weight:900; letter-spacing:-.13em; color:rgba(185,196,211,.026); transform:rotate(-12deg); }
+    body::before { content:"NC"; position:fixed; right:1vw; bottom:1vh; z-index:0; pointer-events:none; font-size:clamp(360px,68vw,920px); line-height:.8; font-weight:900; letter-spacing:-.13em; color:rgba(185,196,211,.026); transform:rotate(-12deg); }
     body > header, body > main, body > footer { position:relative; z-index:1; }
   </style>
 </head>
@@ -530,10 +566,11 @@
   <div class="container">
     <nav>
       <a class="logo" href="#">NOIR<span>CRAFT</span>STUDIO</a>
-      <div class="nav-links">
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#work">Work</a>
         <a href="#services">Services</a>
+        <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -542,7 +579,7 @@
 
 <main>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container">
       <p class="eyebrow">Independent Graphic Design Studio</p>
       <h1>Designs That<br><span>Speaks Volume.</span></h1>
