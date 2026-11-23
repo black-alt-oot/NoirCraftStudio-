@@ -59,6 +59,9 @@
       .gallery { grid-template-columns:1fr; gap:22px; }
     }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    body::before { content:"NC"; position:fixed; right:3vw; bottom:2vh; z-index:0; pointer-events:none; font-size:clamp(180px,32vw,440px); line-height:.8; font-weight:900; letter-spacing:-.13em; color:rgba(185,196,211,.026); transform:rotate(-12deg); }
+    body > header, body > main, body > footer { position:relative; z-index:1; }
   </style>
 </head>
 <body>
