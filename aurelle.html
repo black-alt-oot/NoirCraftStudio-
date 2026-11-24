@@ -151,6 +151,45 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
   header.floating-header .nav-links a { transition: none; }
 }
 
+
+/* AURÈLLE — warm champagne case-study glow */
+.case-study-glow {
+  position: relative;
+  border-color: rgba(224,203,165,.22);
+  transition: box-shadow .55s ease, border-color .55s ease, transform .55s ease;
+}
+.case-study-glow.is-lit {
+  border-color: rgba(231,211,176,.72) !important;
+  box-shadow: 0 0 0 1px rgba(231,211,176,.16),
+              0 0 24px rgba(221,194,148,.28),
+              0 0 64px rgba(194,158,105,.19),
+              0 18px 48px rgba(0,0,0,.22);
+}
+.case-study-preview-image { cursor: zoom-in; }
+.case-study-viewer {
+  position:fixed; inset:0; z-index:2000; display:none;
+  align-items:center; justify-content:center; padding:28px;
+  background:rgba(10,8,7,.95); backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.case-study-viewer.is-open { display:flex; }
+.case-study-viewer img {
+  width:auto; height:auto; max-width:min(94vw,1500px); max-height:88vh;
+  object-fit:contain; user-select:none; -webkit-user-select:none;
+  -webkit-user-drag:none;
+  filter:drop-shadow(0 0 26px rgba(221,194,148,.22));
+}
+.case-study-viewer-close {
+  position:absolute; top:18px; right:20px; width:44px; height:44px;
+  border:1px solid rgba(231,211,176,.55); border-radius:50%;
+  background:rgba(29,24,19,.92); color:#f7f1e7; font-size:25px; cursor:pointer;
+}
+.case-study-viewer-caption {
+  position:absolute; left:20px; right:20px; bottom:12px;
+  color:#e5d8c2; text-align:center; font-size:12px;
+}
+@media(prefers-reduced-motion:reduce){.case-study-glow{transition:none}}
+
 </style>
 </head>
 <body>
@@ -203,5 +242,57 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
     </section>
   </main>
   <footer><div class="container">© 2026 NoirCraftStudio. Designs That Speaks Volume.</div></footer>
+
+<script>
+(() => {
+  const selector = '.cover img, .gallery img';
+  const images = [...document.querySelectorAll(selector)];
+  images.forEach(img => {
+    img.classList.add('case-study-preview-image');
+    img.setAttribute('draggable','false');
+    const frame = img.closest('.cover, .gallery figure');
+    if (frame) frame.classList.add('case-study-glow');
+    img.addEventListener('contextmenu', event => event.preventDefault());
+    img.addEventListener('dragstart', event => event.preventDefault());
+  });
+
+  const frames = [...document.querySelectorAll('.case-study-glow')];
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-lit',entry.isIntersecting));
+    }, {threshold:0.24,rootMargin:'0px 0px -7% 0px'});
+    frames.forEach(frame => observer.observe(frame));
+  } else frames.forEach(frame => frame.classList.add('is-lit'));
+
+  const viewer=document.createElement('div');
+  viewer.className='case-study-viewer';
+  viewer.setAttribute('role','dialog');
+  viewer.setAttribute('aria-modal','true');
+  viewer.setAttribute('aria-label','Case study image preview');
+  viewer.innerHTML='<button class="case-study-viewer-close" type="button" aria-label="Close preview">×</button><img alt=""><p class="case-study-viewer-caption"></p>';
+  document.body.appendChild(viewer);
+  const preview=viewer.querySelector('img');
+  const caption=viewer.querySelector('.case-study-viewer-caption');
+  const close=()=>{viewer.classList.remove('is-open');preview.removeAttribute('src');document.body.style.overflow='';};
+  document.addEventListener('click',event=>{
+    const img=event.target.closest(selector);
+    if(!img)return;
+    preview.src=img.currentSrc||img.src;
+    preview.alt=img.alt||'Case study design preview';
+    caption.textContent=img.alt||'';
+    viewer.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  });
+  viewer.addEventListener('click',event=>{
+    if(event.target===viewer||event.target.closest('.case-study-viewer-close'))close();
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&viewer.classList.contains('is-open'))close();
+  });
+  viewer.addEventListener('contextmenu',event=>event.preventDefault());
+  viewer.addEventListener('dragstart',event=>event.preventDefault());
+})();
+</script>
+
 </body>
 </html>
