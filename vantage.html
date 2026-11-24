@@ -152,18 +152,21 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
 }
 
 
-/* VANTAGE — electric blue and cool-cyan case-study glow */
+/* VANTAGE — vivid electric-blue and cyan neon case-study glow */
 .case-study-glow {
   position: relative;
-  border-color: rgba(91,160,255,.24);
-  transition: box-shadow .55s ease, border-color .55s ease, transform .55s ease;
+  border: 1px solid rgba(77,177,255,.32);
+  transition: box-shadow .65s ease, border-color .65s ease;
 }
 .case-study-glow.is-lit {
-  border-color: rgba(93,181,255,.82) !important;
-  box-shadow: 0 0 0 1px rgba(67,151,255,.18),
-              0 0 26px rgba(44,139,255,.34),
-              0 0 68px rgba(28,104,235,.22),
-              0 18px 48px rgba(0,0,0,.24);
+  border-color: rgba(133,225,255,.98) !important;
+  box-shadow:
+    0 0 0 1px rgba(80,190,255,.32),
+    0 0 10px rgba(74,196,255,.82),
+    0 0 27px rgba(34,157,255,.66),
+    0 0 62px rgba(24,112,255,.44),
+    0 0 108px rgba(16,79,220,.22),
+    0 18px 48px rgba(0,0,0,.26);
 }
 .case-study-preview-image { cursor: zoom-in; }
 .case-study-viewer {
