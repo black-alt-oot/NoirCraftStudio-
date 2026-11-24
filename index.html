@@ -258,18 +258,18 @@
 /* Individual rainbow neon glow for every service card */
 .service {
   position: relative;
-  border-color: rgba(var(--glow-rgb,151,180,218),.42);
-  box-shadow: 0 0 8px rgba(var(--glow-rgb,151,180,218),.12), 0 0 18px rgba(var(--glow-rgb,151,180,218),.08);
-  transition: border-color .35s ease, box-shadow .4s ease, transform .35s ease;
+  border-color: rgba(var(--glow-rgb,151,180,218),.38);
+  box-shadow: 0 0 0 1px rgba(var(--glow-rgb,151,180,218),.10);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .35s ease;
 }
 .service.service-lit {
-  border-color: rgba(var(--glow-rgb,151,180,218),.78);
-  box-shadow: 0 0 9px rgba(var(--glow-rgb,151,180,218),.30), 0 0 23px rgba(var(--glow-rgb,151,180,218),.20), 0 0 42px rgba(var(--glow-rgb,151,180,218),.12), inset 0 0 16px rgba(var(--glow-rgb,151,180,218),.06);
+  border-color: rgba(var(--glow-rgb,151,180,218),.96);
+  box-shadow: 0 0 0 1px rgba(var(--glow-rgb,151,180,218),.34), 0 0 5px 1px rgba(var(--glow-rgb,151,180,218),.30), inset 0 0 0 1px rgba(var(--glow-rgb,151,180,218),.10);
 }
 .service:hover {
   transform: translateY(-3px);
-  border-color: rgba(var(--glow-rgb,151,180,218),.95);
-  box-shadow: 0 0 12px rgba(var(--glow-rgb,151,180,218),.42), 0 0 30px rgba(var(--glow-rgb,151,180,218),.28), 0 0 52px rgba(var(--glow-rgb,151,180,218),.16), inset 0 0 18px rgba(var(--glow-rgb,151,180,218),.08);
+  border-color: rgba(var(--glow-rgb,151,180,218),1);
+  box-shadow: 0 0 0 1px rgba(var(--glow-rgb,151,180,218),.48), 0 0 7px 1px rgba(var(--glow-rgb,151,180,218),.38), inset 0 0 0 1px rgba(var(--glow-rgb,151,180,218),.14);
 }
 @media (prefers-reduced-motion: reduce) {
   .service { transition: none; }
