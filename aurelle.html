@@ -193,6 +193,33 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
 }
 @media(prefers-reduced-motion:reduce){.case-study-glow{transition:none}}
 
+
+/* Bottom case-study navigation */
+.back-to-work-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 58px 0 12px;
+}
+.back-to-work {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 25px;
+  border: 1px solid rgba(255,226,177,.58);
+  border-radius: 999px;
+  color: var(--white);
+  background: rgba(16,24,39,.82);
+  box-shadow: 0 0 14px rgba(244,190,105,.24), inset 0 0 12px rgba(244,190,105,.08);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.back-to-work:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,232,190,.98);
+  box-shadow: 0 0 10px rgba(244,190,105,.62), 0 0 28px rgba(244,190,105,.42), 0 0 48px rgba(244,190,105,.2);
+}
+@media (max-width:700px) { .back-to-work-wrap { padding-top:42px; } }
+
 </style>
 </head>
 <body>
@@ -243,6 +270,7 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
         </figure>
       </div>
     </section>
+    <div class="back-to-work-wrap"><a class="back-to-work" href="index.html#work">← Back to selected work</a></div>
   </main>
   <footer><div class="container">© 2026 NoirCraftStudio. Designs That Speaks Volume.</div></footer>
 
