@@ -688,6 +688,30 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
   .flyer-glow { transition: none; }
 }
 
+
+/* Social profile links — individual brand-color neon */
+.contact-links a[aria-label="Fiverr"] {
+  border-color: rgba(29,191,115,.62);
+  box-shadow: 0 0 10px rgba(29,191,115,.30), 0 0 22px rgba(29,191,115,.16), inset 0 0 12px rgba(29,191,115,.08);
+}
+.contact-links a[aria-label="Behance"] {
+  border-color: rgba(23,105,255,.66);
+  box-shadow: 0 0 10px rgba(23,105,255,.34), 0 0 22px rgba(23,105,255,.18), inset 0 0 12px rgba(23,105,255,.08);
+}
+.contact-links a[aria-label="Gmail"] {
+  border-color: rgba(234,67,53,.66);
+  box-shadow: 0 0 10px rgba(234,67,53,.32), 0 0 22px rgba(234,67,53,.17), inset 0 0 12px rgba(234,67,53,.08);
+}
+.contact-links a[aria-label="LinkedIn"] {
+  border-color: rgba(10,102,194,.72);
+  box-shadow: 0 0 10px rgba(10,102,194,.36), 0 0 22px rgba(10,102,194,.20), inset 0 0 12px rgba(10,102,194,.09);
+}
+.contact-links a[aria-label="Fiverr"]:hover { box-shadow: 0 0 12px rgba(29,191,115,.70), 0 0 30px rgba(29,191,115,.42), 0 0 48px rgba(29,191,115,.20); }
+.contact-links a[aria-label="Behance"]:hover { box-shadow: 0 0 12px rgba(23,105,255,.72), 0 0 30px rgba(23,105,255,.44), 0 0 48px rgba(23,105,255,.22); }
+.contact-links a[aria-label="Gmail"]:hover { box-shadow: 0 0 12px rgba(234,67,53,.70), 0 0 30px rgba(234,67,53,.42), 0 0 48px rgba(234,67,53,.20); }
+.contact-links a[aria-label="LinkedIn"]:hover { box-shadow: 0 0 12px rgba(10,102,194,.74), 0 0 30px rgba(10,102,194,.44), 0 0 48px rgba(10,102,194,.22); }
+@media (prefers-reduced-motion: reduce) { .contact-links a { transition: none; } }
+
 </style>
 </head>
 
