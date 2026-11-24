@@ -141,10 +141,11 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
   transition: box-shadow .45s ease, border-color .45s ease, transform .35s ease;
 }
 .flyer-glow.is-lit {
-  border-color: rgba(var(--glow-rgb,185,196,211),.98) !important;
-  box-shadow: 0 0 0 1px rgba(var(--glow-rgb,185,196,211),.42),
-              0 0 5px 1px rgba(var(--glow-rgb,185,196,211),.34),
-              inset 0 0 0 1px rgba(var(--glow-rgb,185,196,211),.12);
+  border-color: rgba(var(--glow-rgb,185,196,211),1) !important;
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-rgb,185,196,211),.48),
+    0 0 5px 1px rgba(var(--glow-rgb,185,196,211),.42),
+    inset 0 0 0 1px rgba(var(--glow-rgb,185,196,211),.16);
 }
 .flyer-preview-image { cursor: zoom-in; }
 .flyer-viewer {
