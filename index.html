@@ -253,6 +253,28 @@
       background: var(--bg);
     }
 
+
+/* Refined neon treatment for the service cards */
+.service {
+  position: relative;
+  border-color: rgba(151,180,218,.30);
+  box-shadow: 0 0 8px rgba(91,151,220,.10), 0 0 18px rgba(91,151,220,.06);
+  transition: border-color .35s ease, box-shadow .4s ease, transform .35s ease;
+}
+.service.service-lit {
+  border-color: rgba(157,195,240,.48);
+  box-shadow: 0 0 9px rgba(91,151,220,.20), 0 0 23px rgba(91,151,220,.12), inset 0 0 16px rgba(91,151,220,.045);
+}
+.service:hover {
+  transform: translateY(-3px);
+  border-color: rgba(190,215,246,.78);
+  box-shadow: 0 0 12px rgba(91,151,220,.34), 0 0 30px rgba(91,151,220,.20), inset 0 0 18px rgba(91,151,220,.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .service { transition: none; }
+  .service:hover { transform: none; }
+}
+
     .service h3 {
       font-size: 17px;
       margin-bottom: 10px;
@@ -983,6 +1005,21 @@ body > header.floating-header { position: fixed !important; z-index: 1000 !impor
   });
   viewer.addEventListener('contextmenu', event => event.preventDefault());
   viewer.addEventListener('dragstart', event => event.preventDefault());
+})();
+</script>
+
+
+<script>
+(() => {
+  const cards = document.querySelectorAll('.service');
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(card => card.classList.add('service-lit'));
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('service-lit', entry.isIntersecting));
+  }, { threshold: 0.35, rootMargin: '0px 0px -5% 0px' });
+  cards.forEach(card => observer.observe(card));
 })();
 </script>
 
